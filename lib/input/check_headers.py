@@ -51,7 +51,7 @@ unavailable_uid = set()
 last_uid_read = 0
 
 
-def check_validity(check_unavailable_uid='False', json_header_filename='headers.json'):
+def check_validity(check_unavailable_uid, json_header_filename):
 	"""
 
 	This function checks for and prints duplicate, missing, and invalid objects in the "headers.json" file.
@@ -124,7 +124,7 @@ def check_validity(check_unavailable_uid='False', json_header_filename='headers.
 	return last_uid_read
 
 
-def remove_unwanted_headers(to_remove=unwanted_uid, json_header_filename='headers.json'):
+def remove_unwanted_headers(to_remove, json_header_filename):
 	"""
 
 	This function removes all the UIDs specified in the to_remove parameter. By default, it removes all the unwanted
@@ -181,7 +181,7 @@ def remove_duplicate_headers(to_remove=duplicate_uid, json_header_filename='head
 				json_file.write("\n")
 
 
-def add_missing_headers(to_add=missing_uid, unwanted_uid_filename="unwanted_uid.txt"):
+def add_missing_headers(to_add = missing_uid , unwanted_uid_filename ="unwanted_uid.txt"):
 	"""
 
 	This function adds the mails that have been missed out, considering the fact that UIDs are consecutive.
@@ -211,6 +211,7 @@ def replace_invalid_headers(to_replace=invalid_uid, json_header_filename="header
 	:param to_replace: A list of UIDs that need to be replaced. Default value is the list of invalid mails' UIDs.
 	:param json_header_filename: The json file containing the headers.
 	"""
+    
 	if len(to_replace) > 0:
 		print("Replacing invalid headers...")
 		# This list contains a list of JSON objects that need to be written to file

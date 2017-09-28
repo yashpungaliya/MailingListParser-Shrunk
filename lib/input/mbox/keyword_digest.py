@@ -1,6 +1,7 @@
 import json
 import mailbox
 
+from analysis.author import ranking
 import numpy as np
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -21,7 +22,7 @@ def get_top_authors(top_n, json_filename):
     """
     top_authors = set()
     top_authors_index = dict()
-    author_scores = generate_author_ranking(json_filename, output_filename=None, active_score=2, passive_score=1, write_to_file=False)
+    author_scores = ranking.generate_author_ranking( json_filename, output_filename=None, active_score=2, passive_score=1, write_to_file=False)
     index = 0
     for email_addr, author_score in author_scores:
         index += 1
