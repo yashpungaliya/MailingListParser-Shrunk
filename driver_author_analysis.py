@@ -11,7 +11,7 @@ mailbox_list = ['lkml']
 
 for mailbox in mailbox_list:
     # Define directories
-    foldername = "./data/" + mailbox + '/'
+    foldername = "./data/" + mailbox
     mbox_filename = './data/' + mailbox + '/mbox/' + mailbox + '.mbox'
     headers_filename = foldername + '/json/headers.json'
     nodelist_filename = foldername + '/tables/graph_nodes.csv'
@@ -25,7 +25,7 @@ for mailbox in mailbox_list:
     generate_author_ranking(headers_filename, output_filename=foldername+"/tables/author_ranking.csv", active_score=2, passive_score=1)
     generate_wh_table_authors(nodelist_filename, edgelist_filename, foldername+'/tables/wh_table_authors.csv')
     conversation_refresh_times(headers_filename, nodelist_filename, edgelist_filename, foldername, plot=True)
-    generate_kmeans_clustering(mbox_filename, author_uid_filename=author_uid_filename, json_filename=headers_filename,output_filename=foldername+"json/kmeans_clustering.json", top_n=250)
+    generate_kmeans_clustering(mbox_filename, author_uid_filename=author_uid_filename, json_filename=headers_filename,output_filename=foldername+"/json/kmeans_clustering.json", top_n=250)
 
     # For a range of months from Jan 2010 to Dec 2016, generate CL, RT curve fits
     yearly_curve_fit_coeffs = list()
