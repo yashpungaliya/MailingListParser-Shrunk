@@ -21,7 +21,7 @@ for mailbox in mailbox_list:
 
     print("Processing Mailbox:", mailbox)
     generate_hyperedge_distribution(nodelist_filename, edgelist_filename, headers_filename, foldername)
-    generate_keyword_digest(mbox_filename, output_filename=foldername+"author_keyword_digest.txt", author_uid_filename=author_uid_filename,json_filename=headers_filename, top_n=250, console_output=False)
+    generate_keyword_digest(mbox_filename, output_filename=foldername+"/author_keyword_digest.txt", author_uid_filename=author_uid_filename,json_filename=headers_filename, top_n=250, console_output=False)
     generate_author_ranking(headers_filename, output_filename=foldername+"/tables/author_ranking.csv", active_score=2, passive_score=1)
     generate_wh_table_authors(nodelist_filename, edgelist_filename, foldername+'/tables/wh_table_authors.csv')
     conversation_refresh_times(headers_filename, nodelist_filename, edgelist_filename, foldername, plot=True)
